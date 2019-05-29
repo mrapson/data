@@ -3,11 +3,11 @@
 # Generate plots for NFP based data. Needs to be invoked from the
 # directory the data is located.
 
-for base in nfp-lat_cmd_sizes nfp-lat_cmd_details_cdf nfp-lat_dma_details_cdf \
-            nfp-lat_dma_sizes nfp-lat_dma_sizes_byte_inc; do
+for base in lat_cmd_sizes lat_cmd_details_cdf lat_dma_details_cdf \
+            lat_dma_sizes lat_dma_sizes_byte_inc; do
     [ ! -r ${base}.dat ] && continue
     echo $base
-    gnuplot -e "base='$base'" ../gnuplot-templates/$base.gpl
+    gnuplot -e "base='$base'" ../gnuplot-templates/nfp-$base.gpl
 done
 
 # Plot for PCIe CMD Latency tests sweeping over a window
